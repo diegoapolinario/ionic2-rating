@@ -17,11 +17,11 @@ export class IonRating {
   constructor() {}
 
   ngAfterViewInit(){
-    this.calc();
+     setTimeout(_=> this.calc());
   }
 
   calc(){
-  	this.stars = [];
+	this.stars = [];
 	  let tmp = this.value;
 	  for(let i=0; i < this.numStars; i++, tmp--)
 		  if(tmp >= 1)
@@ -33,7 +33,7 @@ export class IonRating {
   }
 
   starClicked(index){
-  	if(!this.readOnly) {
+	if(!this.readOnly) {
 		  this.value = index + 1;
 		  this.calc();
 		  this.clicked.emit(this.value);
